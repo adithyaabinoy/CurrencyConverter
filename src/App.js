@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [input, setInput] = useState(0);
@@ -7,21 +7,26 @@ function App() {
   const [currency2, setCurrency2] = useState("INR");
   const [convert, setConvert] = useState("0");
 
+  // useEffect(() => {
+  //   console.log(input, "inputValue");
+  // }, [input]);
+
   const handleInputChange = (e) => {
     setInput(e.target.value);
+    // console.log(input, "inputValue")
     // setConvert(e.target.value * 83)
     if (currency === "USD" && currency2 === "EUR") {
       setConvert(e.target.value * 0.92);
     } else if (currency === "USD" && currency2 === "INR") {
-      setConvert(e.target.value * 83.32);
+      setConvert(e.target.value * 83.31);
     } else if (currency === "USD" && currency2 === "USD") {
       setConvert(e.target.value * 1);
     } else if (currency === "INR" && currency2 === "INR") {
       setConvert(e.target.value * 1);
     } else if (currency === "INR" && currency2 === "USD") {
-      setConvert(e.target.value * 0.012);
+      setConvert(e.target.value * 0.012003);
     } else if (currency === "INR" && currency2 === "EUR") {
-      setConvert(e.target.value * 0.011);
+      setConvert(e.target.value * 0.010971);
     } else if (currency === "EUR" && currency2 === "INR") {
       setConvert(e.target.value * 90.8);
     } else if (currency === "EUR" && currency2 === "EUR") {
@@ -37,15 +42,15 @@ function App() {
     if (currency === "USD" && currency2 === "EUR") {
       setInput(e.target.value * 0.92);
     } else if (currency === "USD" && currency2 === "INR") {
-      setInput(e.target.value * 83.32);
+      setInput(e.target.value * 83.31);
     } else if (currency === "USD" && currency2 === "USD") {
       setInput(e.target.value * 1);
     } else if (currency === "INR" && currency2 === "INR") {
       setInput(e.target.value * 1);
     } else if (currency === "INR" && currency2 === "USD") {
-      setInput(e.target.value * 0.012);
+      setInput(e.target.value * 0.012003);
     } else if (currency === "INR" && currency2 === "EUR") {
-      setInput(e.target.value * 0.011);
+      setInput(e.target.value * 0.010971);
     } else if (currency === "EUR" && currency2 === "INR") {
       setInput(e.target.value * 90.8);
     } else if (currency === "EUR" && currency2 === "EUR") {
@@ -57,10 +62,49 @@ function App() {
 
   const currencyChange = (e) => {
     setCurrency(e.target.value);
+    if (currency === "USD" && currency2 === "EUR") {
+      // setConvert(e.target.value * 0.92);//inpt
+      setConvert(input * 0.92);
+    } else if (e.target.value === "USD" && currency2 === "INR") {
+      setConvert(input * 83.31);
+    } else if (e.target.value === "USD" && currency2 === "USD") {
+      setConvert(input * 1);
+    } else if (e.target.value === "INR" && currency2 === "INR") {
+      setConvert(input * 1);
+    } else if (e.target.value === "INR" && currency2 === "USD") {
+      setConvert(input * 0.012003);
+    } else if (e.target.value === "INR" && currency2 === "EUR") {
+      setConvert(input * 0.010971);
+    } else if (e.target.value === "EUR" && currency2 === "INR") {
+      setConvert(input * 90.8);
+    } else if (e.target.value === "EUR" && currency2 === "EUR") {
+      setConvert(input * 1);
+    } else if (e.target.value === "EUR" && currency2 === "USD") {
+      setConvert(input * 1.09);
+    }
   };
 
   const currencyChange2 = (e) => {
     setCurrency2(e.target.value);
+    if (currency === "USD" && currency2 === "EUR") {
+      setConvert(e.target.value * 0.92);
+    } else if (e.target.value === "USD" && currency2 === "INR") {
+      setConvert(input * 83.31);
+    } else if (e.target.value === "USD" && currency2 === "USD") {
+      setConvert(input * 1);
+    } else if (e.target.value === "INR" && currency2 === "INR") {
+      setConvert(input * 1);
+    } else if (e.target.value === "INR" && currency2 === "USD") {
+      setConvert(input * 0.012003);
+    } else if (e.target.value === "INR" && currency2 === "EUR") {
+      setConvert(input * 0.010971);
+    } else if (e.target.value === "EUR" && currency2 === "INR") {
+      setConvert(input * 90.8);
+    } else if (e.target.value === "EUR" && currency2 === "EUR") {
+      setConvert(input * 1);
+    } else if (e.target.value === "EUR" && currency2 === "USD") {
+      setConvert(input * 1.09);
+    }
   };
 
   return (
@@ -96,6 +140,9 @@ function App() {
             onChange={handleInputChange}
             className="currencyConverter__inputs"
           />
+          <button>
+            SWITCH
+          </button>
           <input
             type="number"
             value={convert}
@@ -109,4 +156,3 @@ function App() {
 }
 
 export default App;
-//u

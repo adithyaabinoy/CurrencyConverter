@@ -11,3 +11,16 @@ root.render(
 );
 
 
+// const eatMore = () => {
+//   setBananas((bananas) => {
+//       const modifiedValue = bananas + 1;
+//       console.log(modifiedValue);
+//       return modifiedValue;
+//   });
+// };
+
+// (bananas) => {
+//   const modifiedValue = bananas + 1;
+//   console.log(modifiedValue);
+//   return modifiedValue;
+// }
